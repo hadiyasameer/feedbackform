@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+</head>
+
+<body>
+    <header></header>
+
+    <main style="display:flex; justify-content: center; align-items: center; height: 100vh; width: 90vw;">
+        <div class="form" style="height: 400px; max-width:300px; display:flex; flex-direction: column; justify-content: center; background-color: rgb(156, 182, 223); padding: 20px; color:rgb(8, 51, 109); border-radius: 8px;">
+        <h1 style="margin-bottom: 40px;">Share Your Feedback</h1>
+       
+        <form id="feedbackform" name="feedbackform" onsubmit="validate(event)" style="margin-left: 50px;" >
+           <h2> changes : trim and isvalid</h2>
+            <label for="name">Name :
+                <span style="color: red;">*</span>
+            </label><br>
+            <input type="text" id="name" name="name" style="height: 20px; width: 180px; border: none;">
+            <br>
+            <label style="color: red;" id="nameval"></label>
+            <br>
+            <label for="email">Email :
+                <span style="color: red;">*</span>
+            </label><br>
+            <input type="email" id="email" name="email" style="height: 20px; width: 180px; border: none;">
+            <br>
+            <label style="color: red;" id="emailval"></label>
+            <br>
+            <label for="feedback">Feedback :
+                <span style="color: red;">*</span>
+            </label><br>
+            <textarea name="feedback" id="feedback" name="feedback" style="height: 30px; width: 180px; border: none;"></textarea>
+            <br>
+            <label style="color: red;" id="fbval"></label>
+            <br>
+            <br>
+            <button type="submit" id="fbbutton" style="height: 30px; width: 100px; border: none; cursor: pointer; color: white; background-color: rgb(8, 51, 109); margin-left: 43px;">Submit</button>
+            <br>
+            <br>
+            <label style="color: rgb(8, 51, 109);" id="thanks"></label>
+        </form>
+    </div>
+    </main>
+
+    <footer></footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
