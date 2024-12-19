@@ -1,4 +1,5 @@
- function validate(event) {
+const form=document.getElementById("feedbackform");
+form.addEventListener('submit', function validate(event) {
     event.preventDefault();
 
     let name = document.getElementById("name");
@@ -9,7 +10,9 @@
     let fbValidate = document.getElementById("fbval");
     let thankstext = document.getElementById("thanks");
 
-    if (name.value == "") {
+    let isValid=true;
+
+    if (name.value.trim() === "") {
         nameValidate.textContent = "*Name is required";
         name.focus();
         return false;
@@ -17,14 +20,14 @@
     else {
         nameValidate.textContent = "";
     }
-    if (email.value == "") {
+    if (email.value.trim() === "") {
         emailValidate.textContent = "*Valid email is required!";
         email.focus();
         return false;
     }
     else {
         let emailRegex = /^[^@]+@[^@]+\.[^@]+$/
-        if (!emailRegex.test(email.value)) {
+        if (!emailRegex.test(email.value.trim())) {
             emailvalidate.textContent = "*Valid email is required!";
             email.focus();
             return false;
@@ -35,20 +38,16 @@
     }
 
 
-    if (feedback.value == "") {
+    if (feedback.value.trim() === "") {
         fbValidate.textContent = "Please enter your feedback!";
         name.focus();
         return false;
     }
-    else {
-        const button = document.getElementById('fbbutton');
-        button.addEventListener('click', function () {
-            fbValidate.textContent = "";
-            thankstext.innerHTML = name.value+" Thank you for your feedback!";
-            name.value = "";
-            email.value = "";
-            feedback.value = "";
-        })
+    if(isValid) {
+        fbValidate.textContent = "";
+        thankstext.innerHTML = name.value + " Thank you for your feedback!";
+        name.value = "";
+        email.value = "";
+        feedback.value = "";
     }
-
-}
+})
